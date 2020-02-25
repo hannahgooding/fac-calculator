@@ -4,3 +4,56 @@
   box-sizing: border-box;
   font-family: 'Press Start 2P', cursive;
 }
+
+.calculator-grid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  background-color: #e97fb6;
+  border-radius: 10px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(4, 80px);
+  grid-template-rows: 80px repeat(5, 80px);
+  align-content: center;
+}
+
+.calculator-grid > button {
+  cursor: pointer;
+  background-color: #f4beda;
+  border-radius: 10px;
+  font-size: 20px;
+  border: none;
+}
+
+.calculator-grid > button:hover {
+  background-color: #f8d3e6;
+}
+
+.output {
+  background-color: #e6e6e6;
+  border-radius: 10px;
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  flex-direction: column;
+  padding-right: 10px;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.output .previous-operand {
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.output .current-operand {
+  font-size: 18px;
+}
+
+.span-two {
+  grid-column: span 2;
+}
