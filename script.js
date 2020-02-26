@@ -112,43 +112,47 @@ deleteButton.addEventListener('click', button => {
 document.onkeydown = function(e){
   switch(e.keyCode){
     case 48:
-      calculator.appendNumber(0);
+      calculator.appendNumber('0');
       calculator.updateDisplay();
       break;
     case 49:
-      calculator.appendNumber(1);
+      calculator.appendNumber('1');
       calculator.updateDisplay();
       break;
     case 50:
-      calculator.appendNumber(2);
+      calculator.appendNumber('2');
       calculator.updateDisplay();
       break;
     case 51:
-      calculator.appendNumber(3);
+      calculator.appendNumber('3');
       calculator.updateDisplay();
       break;
     case 52:
-      calculator.appendNumber(4);
+      calculator.appendNumber('4');
       calculator.updateDisplay();
       break;
     case 53:
-      calculator.appendNumber(5);
+      calculator.appendNumber('5');
       calculator.updateDisplay();
       break;
     case 54:
-      calculator.appendNumber(6);
+      calculator.appendNumber('6');
       calculator.updateDisplay();
       break;
     case 55:
-      calculator.appendNumber(7);
+      calculator.appendNumber('7');
       calculator.updateDisplay();
       break;
     case 56:
-      calculator.appendNumber(8);
+      calculator.appendNumber('8');
       calculator.updateDisplay();
       break;
     case 57:
-      calculator.appendNumber(9);
+      calculator.appendNumber('9');
+      calculator.updateDisplay();
+      break;
+    case 190:
+      calculator.appendNumber('.');
       calculator.updateDisplay();
       break;
   }
