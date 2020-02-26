@@ -109,8 +109,8 @@ deleteButton.addEventListener('click', button => {
 });
 
 // keyboard inputs
-document.onkeydown = function(e){
-  switch(e.keyCode){
+document.onkeydown = function(e) {
+  switch(e.keyCode) {
     case 48:
       calculator.appendNumber('0');
       calculator.updateDisplay();
@@ -144,8 +144,13 @@ document.onkeydown = function(e){
       calculator.updateDisplay();
       break;
     case 56:
-      calculator.appendNumber('8');
-      calculator.updateDisplay();
+      if (e.shiftKey) { // asterisk key
+        calculator.chooseOperation('×');
+        calculator.updateDisplay();
+      } else {
+        calculator.appendNumber('8');
+        calculator.updateDisplay();
+      }
       break;
     case 57:
       calculator.appendNumber('9');
@@ -153,6 +158,31 @@ document.onkeydown = function(e){
       break;
     case 190:
       calculator.appendNumber('.');
+      calculator.updateDisplay();
+      break;
+    case 191: // slash key
+      calculator.chooseOperation('÷');
+      calculator.updateDisplay();
+      break;
+    case 189: // minus key
+      calculator.chooseOperation('-');
+      calculator.updateDisplay();
+      break;
+    case 187:
+      if (e.shiftKey) { // plus key
+        calculator.chooseOperation('+');
+        calculator.updateDisplay();
+      } else { // equals key
+        calculator.compute();
+        calculator.updateDisplay();
+      }
+      break;
+    case 13: // enter key
+      calculator.compute();
+      calculator.updateDisplay();
+      break;
+    case 8: // backspace key
+      calculator.delete();
       calculator.updateDisplay();
       break;
   }
