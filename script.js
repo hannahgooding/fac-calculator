@@ -187,3 +187,36 @@ document.onkeydown = function(e) {
       break;
   }
 };
+
+function test(name, testFunction) {
+  function equal(x, y, message = `Expected ${x} to equal ${y}`) {
+    if (x === y) {
+      console.info("Pass: " + message);
+    } else {
+      console.error("Fail: " + message);
+    }
+  }
+
+  function notEqual(x, y, message = `Expected ${x} not to equal ${y}`) {
+    if (x !== y) {
+      console.info("Pass: " + message);
+    } else {
+      console.error("Fail: " + message);
+    }
+  }
+
+  const assertions = {
+    equal,
+    notEqual,
+  };
+
+  console.group(name);
+  testFunction(assertions);
+  console.groupEnd(name);
+};
+
+test("When you click a number button, the value appears on display", obj => {
+  const sevenButton = document.getElementById("7");
+  sevenButton.click();
+  obj.equal(currentOperandTextElement.innerText, sevenButton.innerText);
+});
